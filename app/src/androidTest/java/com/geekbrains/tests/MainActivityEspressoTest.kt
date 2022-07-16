@@ -27,6 +27,26 @@ class MainActivityEspressoTest {
     }
 
     @Test
+    fun activitySearchEditText_IsDisplayed() {
+        onView(withId(R.id.searchEditText)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun activityProgressBar_IsVisibilityGone() {
+        onView(withId(R.id.progressBar)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+    }
+
+    @Test
+    fun activityToDetailsActivityButton_IsDisplayed() {
+        onView(withId(R.id.toDetailsActivityButton)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun activityToDetailsActivityButton_HasText() {
+        onView(withId(R.id.toDetailsActivityButton)).check(matches(withText("to details")))
+    }
+
+    @Test
     fun activitySearch_IsWorking() {
         onView(withId(R.id.searchEditText)).perform(click())
         onView(withId(R.id.searchEditText)).perform(replaceText("algol"), closeSoftKeyboard())
