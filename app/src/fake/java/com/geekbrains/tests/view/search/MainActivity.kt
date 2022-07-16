@@ -66,13 +66,7 @@ class MainActivity : AppCompatActivity(), ViewSearchContract {
         })
     }
 
-    private fun createRepository(): RepositoryContract {
-        return if (BuildConfig.TYPE == FAKE) {
-            FakeGitHubRepository()
-        } else {
-            GitHubRepository(createRetrofit().create(GitHubApi::class.java))
-        }
-    }
+    private fun createRepository(): RepositoryContract = FakeGitHubRepository()
 
     private fun createRetrofit(): Retrofit {
         return Retrofit.Builder()
